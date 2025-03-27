@@ -35,5 +35,17 @@ public class Post {
         return date;
     }
 
+    public void setName(String string) {
+        this.name = string;
+    }
+
+    public void setContent(String string) {
+        this.content = string;
+    }
+
+    public void setDate(Date date2) {
+        this.date = date2;
+    }
+
 
 }

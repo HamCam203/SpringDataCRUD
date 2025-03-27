@@ -1,5 +1,6 @@
 package com.backend.BlogData;
 
+import java.util.Date;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +49,31 @@ public class BlogDataApplication implements CommandLineRunner {
           List<PostAggregate> postAggregates = postRepository.groupByDate();
           postAggregates.stream().forEach((post) -> logger.info(post.getDate() + " : " + post.getNames().size()));
 
+          // Ajout d'un post
+          // Post newP = new Post();
+          // newP.setName("My new blog post");
+          // newP.setDate(new Date());
+          // newP.setContent("A new blog post, amazing!");
+
+          // postRepository.insert(newP);
+
+          // Ajout de plusieurs posts
+          Post newP1 = new Post();
+          newP1.setName("Welcome on board!");
+          newP1.setDate(new Date());
+          newP1.setContent("My blog is really useful !");
+
+          Post newP2 = new Post();
+          newP2.setName("See you soon");
+          newP2.setDate(new Date());
+          newP2.setContent("I will be back soon - going on holidays!");
+
+          postRepository.insert(List.of(newP1, newP2));
+
      }
 
 }
+
+
+
+
