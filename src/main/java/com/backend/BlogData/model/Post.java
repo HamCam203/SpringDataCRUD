@@ -15,6 +15,7 @@ public class Post {
       private String name;
       private String content;
       private Date date;
+      private Tag tag;
 
       // getters and setters
         public String getId() {
@@ -45,6 +46,14 @@ public class Post {
 
     public void setDate(Date date2) {
         this.date = date2;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
     }
 
 

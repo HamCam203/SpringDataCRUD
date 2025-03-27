@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.backend.BlogData.model.LightPost;
 import com.backend.BlogData.model.Post;
 import com.backend.BlogData.model.PostAggregate;
+import com.backend.BlogData.model.Tag;
 import com.backend.BlogData.repository.PostRepository;
 
 @SpringBootApplication
@@ -58,17 +59,31 @@ public class BlogDataApplication implements CommandLineRunner {
           // postRepository.insert(newP);
 
           // Ajout de plusieurs posts
-          Post newP1 = new Post();
-          newP1.setName("Welcome on board!");
-          newP1.setDate(new Date());
-          newP1.setContent("My blog is really useful !");
+          // Post newP1 = new Post();
+          // newP1.setName("Welcome on board!");
+          // newP1.setDate(new Date());
+          // newP1.setContent("My blog is really useful !");
 
-          Post newP2 = new Post();
-          newP2.setName("See you soon");
-          newP2.setDate(new Date());
-          newP2.setContent("I will be back soon - going on holidays!");
+          // Post newP2 = new Post();
+          // newP2.setName("See you soon");
+          // newP2.setDate(new Date());
+          // newP2.setContent("I will be back soon - going on holidays!");
 
-          postRepository.insert(List.of(newP1, newP2));
+          // postRepository.insert(List.of(newP1, newP2));
+
+          // Ajout d'un post avec un tag
+          Tag springTag = new Tag();
+          springTag.setName("Spring Framework");
+          springTag.setSlug("spring-framework");
+          springTag.setDescription("Spring is the most popular Java Framework in the world.");
+
+          Post newPost = new Post();
+          newPost.setName("Spring Framework Presentation");
+          newPost.setDate(new Date());
+          newPost.setContent("Let me introduce you to the awesome Spring Framework!");
+          newPost.setTag(springTag);
+
+          postRepository.insert(newPost);
 
      }
 
