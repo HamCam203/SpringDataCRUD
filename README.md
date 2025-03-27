@@ -16,7 +16,28 @@ Ce projet est une implémentation d'une plateforme de blogging utilisant **Sprin
 - **Maven** (Gestion des dépendances)
 
 ## 📂 Structure du projet
+```
+BLOGDATA/
+│── .mvn/
+│── src/
+│   ├── main/
+│   │   ├── java/com/backend/BlogData/
+│   │   │   ├── model/
+│   │   │   │   ├── Comment.java
+│   │   │   │   ├── LightPost.java
+│   │   │   │   ├── Post.java
+│   │   │   │   ├── PostAggregate.java
+│   │   │   │   ├── Tag.java
+│   │   │   ├── repository/
+│   │   │   │   ├── PostRepository.java
+│   │   │   ├── BlogDataApplication.java
+│   │   ├── resources/
+│   │   │   ├── application.properties
+│   ├── test/
+│   │   ├── java/com/backend/BlogData/
+│   │   │   ├── BlogDataApplicationTests.java
 
+```
 
 ## 🚀 Installation et exécution
 
