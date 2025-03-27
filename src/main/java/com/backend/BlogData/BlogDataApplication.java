@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.backend.BlogData.model.LightPost;
 import com.backend.BlogData.model.Post;
 import com.backend.BlogData.repository.PostRepository;
 
@@ -25,8 +27,13 @@ public class BlogDataApplication implements CommandLineRunner {
      @Override
      public void run(String... args) throws Exception {
 
+          // Affichage de tous les posts
           List<Post> allPosts = postRepository.findAll();
           allPosts.stream().forEach((post) -> logger.info(post.getName()));
+
+          // Affichage de tous les posts triés par date
+          List<LightPost> allLightPosts = postRepository.findByOrderByDateDesc();
+          allLightPosts.stream().forEach((post) -> logger.info(post.getName()));
 
      }
 
