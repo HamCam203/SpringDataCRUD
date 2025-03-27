@@ -54,7 +54,7 @@ public class BlogDataApplication implements CommandLineRunner {
 
           // Ajout d'un post
           Post newP = new Post();
-          newP.setName("My first blog post");
+          newP.setName("THE first blog post");
           newP.setDate(new Date());
           newP.setContent("A new blog post, amazing !!!!");
 
@@ -99,8 +99,10 @@ public class BlogDataApplication implements CommandLineRunner {
           newComment.setContent("This blog is amazing!");
 
           newP.getComments().add(newComment);
-          
+
           postRepository.save(newP);
+
+          postRepository.delete(newP); // suppression du post
 
      }
 
