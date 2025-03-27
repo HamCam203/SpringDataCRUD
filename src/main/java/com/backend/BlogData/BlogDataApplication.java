@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Example;
 
+import com.backend.BlogData.model.Comment;
 import com.backend.BlogData.model.LightPost;
 import com.backend.BlogData.model.Post;
 import com.backend.BlogData.model.PostAggregate;
@@ -51,10 +53,10 @@ public class BlogDataApplication implements CommandLineRunner {
           postAggregates.stream().forEach((post) -> logger.info(post.getDate() + " : " + post.getNames().size()));
 
           // Ajout d'un post
-          // Post newP = new Post();
-          // newP.setName("My new blog post");
-          // newP.setDate(new Date());
-          // newP.setContent("A new blog post, amazing!");
+          Post newP = new Post();
+          newP.setName("My first blog post");
+          newP.setDate(new Date());
+          newP.setContent("A new blog post, amazing !!!!");
 
           // postRepository.insert(newP);
 
@@ -72,18 +74,33 @@ public class BlogDataApplication implements CommandLineRunner {
           // postRepository.insert(List.of(newP1, newP2));
 
           // Ajout d'un post avec un tag
-          Tag springTag = new Tag();
-          springTag.setName("Spring Framework");
-          springTag.setSlug("spring-framework");
-          springTag.setDescription("Spring is the most popular Java Framework in the world.");
+          // Tag springTag = new Tag();
+          // springTag.setName("Spring Framework");
+          // springTag.setSlug("spring-framework");
+          // springTag.setDescription("Spring is the most popular Java Framework in the world.");
 
-          Post newPost = new Post();
-          newPost.setName("Spring Framework Presentation");
-          newPost.setDate(new Date());
-          newPost.setContent("Let me introduce you to the awesome Spring Framework!");
-          newPost.setTag(springTag);
+          // Post newPost = new Post();
+          // newPost.setName("Spring Framework Presentation");
+          // newPost.setDate(new Date());
+          // newPost.setContent("Let me introduce you to the awesome Spring Framework!");
+          // newPost.setTag(springTag);
 
-          postRepository.insert(newPost);
+          // postRepository.insert(newPost);
+
+          // Mise à jour d'un post
+          String newName = newP.getName() + " [updated]";
+          newP.setName(newName);
+
+          postRepository.save(newP); // mise à jour avec la méthode save
+
+          // Creation d'un commentaire
+          Comment newComment = new Comment();
+          newComment.setPseudo("your fan");
+          newComment.setContent("This blog is amazing!");
+
+          newP.getComments().add(newComment);
+          
+          postRepository.save(newP);
 
      }
 

@@ -1,6 +1,8 @@
 package com.backend.BlogData.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -16,6 +18,7 @@ public class Post {
       private String content;
       private Date date;
       private Tag tag;
+      private List<Comment> comments = new ArrayList<>();
 
       // getters and setters
         public String getId() {
@@ -54,6 +57,14 @@ public class Post {
 
     public void setTag(Tag tag) {
         this.tag = tag;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
 
