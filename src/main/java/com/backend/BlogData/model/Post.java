@@ -30,6 +30,10 @@ public class Post {
     public String getName() {
         return name;
     }
+    // getDate
+    public Date getDate() {
+        return date;
+    }
 
 
 }
