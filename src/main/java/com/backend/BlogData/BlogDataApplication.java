@@ -27,13 +27,17 @@ public class BlogDataApplication implements CommandLineRunner {
      @Override
      public void run(String... args) throws Exception {
 
-          // Affichage de tous les posts
+          logger.info("Affichage de tous les posts");
           List<Post> allPosts = postRepository.findAll();
           allPosts.stream().forEach((post) -> logger.info(post.getName()));
 
-          // Affichage de tous les posts triés par date
+          logger.info("Affichage de tous les posts triés par date");
           List<LightPost> allLightPosts = postRepository.findByOrderByDateDesc();
           allLightPosts.stream().forEach((post) -> logger.info(post.getName()));
+
+          logger.info("Affichage de tous les posts avec projection par requête native");
+          List<Post> allPostsIdAndName = postRepository.findIdAndNameExcludeOthers();
+          allPostsIdAndName.stream().forEach((post) -> logger.info(post.getName()));
 
      }
 
